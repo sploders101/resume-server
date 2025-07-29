@@ -1,0 +1,173 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Nunito', sans-serif;
+	display: grid;
+
+	grid-template:
+		" .    .      .       .      .            .     " 1rem
+		" .    header header  header header       header" auto
+		" .    .      sidebar .      main-content .     " auto
+		/ 1rem 3rem 20rem 5rem auto 1rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: var(--accent-text);
+}
+
+hr {
+	outline: none;
+	border: none;
+	border-top: 1px solid black;
+}
+
+header {
+	grid-area: header;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: var(--accent-bg);
+
+	border-top-left-radius: 5rem;
+	border-bottom-left-radius: 5rem;
+
+	&>.placeholder {
+		height: 8rem;
+		width: 8rem;
+		margin: 1rem;
+		border-radius: 50%;
+		border: 5px solid white;
+
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		text-align: center;
+
+		color: var(--text-on-accent);
+
+		font-size: 48pt;
+	}
+
+	&>.info {
+		padding-right: 4rem;
+
+		h1,
+		h2 {
+			margin: 0;
+		}
+	}
+}
+
+sidebar {
+	grid-area: sidebar;
+	max-width: 20rem;
+}
+
+article {
+	grid-area: main-content;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	page-break-after: avoid;
+}
+
+h3 {
+	border-bottom: 7px solid var(--accent-bg);
+}
+
+h4,
+h5 {
+	&:has(+ *) {
+		margin: 0;
+	}
+
+	&+* {
+		margin-top: 0;
+	}
+}
+
+/* .job-entry, */
+/* .personal-project, */
+/* .education { */
+	/* page-break-inside: avoid; */
+/* } */
+
+.contact-item {
+	/* Indent broken lines to make it clear they are related */
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+.links-item {
+	/* Indent broken lines to make it clear they are related */
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+@media print {
+	body {
+		grid-template:
+			" header  header header      " auto
+			" sidebar .      main-content" auto
+			/ 16rem 1rem auto;
+		font-size: 0.95rem;
+	}
+
+	header>.info {
+		padding-right: 2rem;
+	}
+}
+
+@media screen and (max-width: 50rem) {
+	body {
+		grid-template:
+			" .    .      .            .     " 1rem
+			" .    header header       header" auto
+			" .    .      sidebar      .     " auto
+			" .    .      main-content .     " auto
+			/ 1rem 2rem auto 1rem;
+	}
+
+	header>.info {
+		padding-right: 2rem;
+	}
+
+	sidebar {
+		max-width: unset;
+	}
+}
+
+@media screen and (max-width: 30rem) {
+	body {
+		grid-template:
+			" .    .            .     " 1rem
+			" .    header       header" auto
+			" .    sidebar      .     " auto
+			" .    main-content .     " auto
+			/ 1rem auto 1rem;
+	}
+
+	header>.info {
+		padding-right: 0.5rem;
+	}
+
+	sidebar {
+		max-width: unset;
+	}
+}
