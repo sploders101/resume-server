@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"context"
-	"database/sql"
 	_ "embed"
 	"log"
 	"strings"
@@ -16,7 +15,6 @@ import (
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
 	"github.com/gorilla/mux"
-	"github.com/sploders101/resume-server/migrations"
 	"github.com/yuin/goldmark"
 	"gopkg.in/yaml.v3"
 )
@@ -26,17 +24,6 @@ func main() {
 	if !exists {
 		log.Fatalln("RESUME_PATH unspecified.")
 	}
-
-	dbPath, exists := os.LookupEnv("DB_PATH")
-	if !exists {
-		log.Fatalln("DB_PATH unspecified")
-	}
-
-	db, err := sql.Open("sqlite3", dbPath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	migrations.InitDb(db)
 
 	router := mux.NewRouter()
 
