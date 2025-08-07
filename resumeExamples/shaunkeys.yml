@@ -60,15 +60,16 @@ profExperience:
       - title: Systems Engineer II
         startedAt: JUL 2022
         endedAt: NOV 2023
-    description: |
+    highlights: |
       * Created & maintained tools assisting in the deployment of new equipment and higher internet speeds to customers.
       * Created an in-house form framework designed to expedite development on simple and/or urgently-needed tools, allowing the creation of tools in a few hours that would ordinarily take multiple days to a week. This framework compromised on flexibility to allow us to deliver value with reasonably-good UX when it was urgently needed with less than a day of lead time.
+      * Assisted in the rollout of a sister team's high availability architecture, including training & consulting on Ceph, Kubernetes, and Docker, as well as load balancing and database clustering.
+      * Offered significant instruction on the fundamentals of secure coding, socket programming, Linux systems, and containers with in-depth explanations of how they work.
+    description: |
       * Created intelligent text parsers in Rust & Python to report network device configurations in a normalized, easy-to-use format, reporting any inconsistencies identified during analysis. These parsers caught several potential outages and served as the basis for a significant number of tools dealing with maintenance of existing equipment, and rollout of new equipment.
       * Maintained Linux servers housing a significant number of mission-critical tools, and created a containerized environment in a new server to allow legacy codebases to run on a fundamentally different system.
       * Assisted in the training and adoption of docker containers and microservice architecture to consolidate logging & auditing, automate deployments, and create central pivot points where we can fix critical issues arising due to lack of vendor documentation which span multiple projects.
       * Created a variety of microservices handling tasks from OAuth2 authentication & JWT-based sessions to emulating human input on iCMTS CLI interfaces and parsing complicated output with little to no structure, exposing a gRPC API for the rest of our system.
-      * Assisted in the rollout of a sister team's high availability architecture, including training & consulting on Ceph, Kubernetes, and Docker, as well as load balancing and database clustering.
-      * Offered significant instruction on the fundamentals of secure coding, socket programming, Linux systems, and containers with in-depth explanations of how they work.
       * Facilitated the migration of large amounts of undocumented code to a new system, going so far as to create my own container system based on Flatpak's Bubblewrap when Docker was not an accessible option.
         * This allowed us to keep our new environment clean and free of dirty hacks when there was no time to rewrite legacy code, while requiring documentation on all non-standard configurations.
   - companyName: Nagrastar
@@ -76,21 +77,23 @@ profExperience:
       - title: Software Engineer
         startedAt: OCT 2021
         endedAt: JUL 2022
-    description: |
+    highlights: |
       * Helped create applications for Dish set-top boxes in QML/JS. Participated in development team.
+      * Fully onboarded with the team in two weeks having no prior knowledge of QML.
+      * Created specialized routing solutions for QA lab to solve very unique challenges stemming from lack of access to the company network's router, isolation of different companies' networks, CI infrastructure limitations, and broadcast traffic from STBs.
+    description: |
       * Wrote a working "Promise" implementation from scratch for use in an ES5 Qt environment.
       * Created data synchronization models similar to a virtual DOM that converted between QML/JS data types and allowed smooth updating of content by analyzing differences.
-      * Created specialized routing solutions for QA lab to solve very unique challenges stemming from lack of access to the company network's router, isolation of different companies' networks, CI infrastructure limitations, and broadcast traffic from STBs.
-      * Fully onboarded with the team in two weeks having no prior knowledge of QML.
   - companyName: Panther Industries
     roles:
       - title: Software Engineer
         startedAt: AUG 2018
         endedAt: OCT 2021
-    description: |
+    highlights: |
       * Created Panther Analytics as an embedded Linux system used to log and view efficiency data of Panther Industries' applicators.
       * Created ProductionHub: Panther's order tracking & productivity software.
       * Created tools to assist the sales department in advising customers how we could help.
+    description: |
       * Created the codebase for Virtual System Builder, which displays an image of our system based on the requested configuration.
       * Created an automatic update payload in the form of a bootable SD card that can extract hard-coded variables from a proprietary PLC runtime using a multi-stage payload injection process and generate an update package on-demand, upgrading the software in a desired PLC.
         * This later manifested into a full-scale redesign of our software deployment strategy, and allowed me to create user-friendly software installation wizards for Wago PLCs that were previously programmed using a proprietary IDE, and deploy software installs in bulk while lowering licensing costs.
@@ -107,16 +110,18 @@ profExperience:
 
 personalProjects:
   - title: WSLinux
-    description: |
+    highlights: |
       WSLinux is a project I created for fun in my spare time that allows anyone to boot their computer using a web browser as their system disk.
-
+    description: |
       To do this, I designed and built my own POSIX filesystem using web technologies, a binary remote filesystem protocol that runs on websockets, and a FUSE connector that acts as a WebSocket server. The web app running Idbfs (IndexedDB FileSystem) and Wsfs (WebSocket FileSystem [server]) then connects to the FUSE driver, and serves files over that connection.
 
       When combined with a proper initramfs in a UKI efi file, this can be used to bootstrap a system to allow mounting Wsfs as the root system partition during early boot. Everything seems to work well, and I have even been able to successfully boot to a graphical interface, and run Chromium in Linux, booted from Chromium.
   - title: SimplyDMX
-    description: |
+    highlights: |
       While volunteering in production at church, I have seen a need for better DMX lighting software and have been developing new software in my spare time.
   - title: Home Lab
+    highlights: |
+      I maintain a homelab which allows me to try thing out and learn new technologies, including Kubernetes, Docker, Ceph, iSCSI, CI/CD, and more, and gain a deep understanding of how they work.
     description: |
       Ever since I was a kid, I have been building and administering Linux servers using various technologies such as OpenHAB, Home Assistant, media servers, Samba, Netatalk, iSCSI, Ceph, Proxmox, Docker, and many more. This is a primary source of my skills, and allows me to learn a significant number of technologies very deeply, understanding most, if not all, of the lower-level building blocks that make them work.
 

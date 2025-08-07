@@ -30,19 +30,10 @@ func main() {
 	router.HandleFunc("/style.css", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "./assets/static/style.css")
 	})
-	router.HandleFunc("/", htmlResumeHandler(resumePath, "./assets/resume.html"))
-	router.HandleFunc("/pdf", func(w http.ResponseWriter, r *http.Request) {
-		result, err := pdfGrabber("http://127.0.0.1:8080/")
-		if err != nil {
-			w.Header().Add("Content-Type", "text/plain")
-			w.WriteHeader(500)
-			w.Write([]byte("An internal server error occurred."))
-			return
-		}
-		w.Header().Add("Content-Type", "application/pdf")
-		w.Header().Add("Content-Disposition", `attachment; filename="resume.pdf"`)
-		w.Write(result)
-	})
+	router.HandleFunc("/", htmlResumeHandler(true, resumePath, "./assets/resume.html"))
+	router.HandleFunc("/short", htmlResumeHandler(false, resumePath, "./assets/resume.html"))
+	router.HandleFunc("/pdf", pdfResumeHandler(true))
+	router.HandleFunc("/pdf/short", pdfResumeHandler(false))
 
 	log.Println("Listening for connections...")
 	http.ListenAndServe(":8080", router)
@@ -80,7 +71,11 @@ func getResumeTemplate(templatePath string) (*template.Template, error) {
 }
 
 // Generates a handler function for serving resumes via HTTP, given a resume and template path.
-func htmlResumeHandler(resumePath string, templatePath string) func(w http.ResponseWriter, r *http.Request) {
+func htmlResumeHandler(
+	includeDescriptions bool,
+	resumePath string,
+	templatePath string,
+) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		resume, err := getResumeData(resumePath)
 		if err != nil {
@@ -99,7 +94,32 @@ func htmlResumeHandler(resumePath string, templatePath string) func(w http.Respo
 		}
 
 		w.Header().Add("Content-Type", "text/html")
-		template.Execute(w, resume)
+		context := ResumeContext{
+			IncludeDescriptions: includeDescriptions,
+			Resume:              resume,
+		}
+		template.Execute(w, context)
+	}
+}
+
+func pdfResumeHandler(includeDescriptions bool) func(w http.ResponseWriter, r *http.Request) {
+	var url string
+	if includeDescriptions {
+		url = "http://127.0.0.1:8080/"
+	} else {
+		url = "http://127.0.0.1:8080/short"
+	}
+	return func(w http.ResponseWriter, r *http.Request) {
+		result, err := pdfGrabber(url)
+		if err != nil {
+			w.Header().Add("Content-Type", "text/plain")
+			w.WriteHeader(500)
+			w.Write([]byte("An internal server error occurred."))
+			return
+		}
+		w.Header().Add("Content-Type", "application/pdf")
+		w.Header().Add("Content-Disposition", `attachment; filename="resume.pdf"`)
+		w.Write(result)
 	}
 }
 

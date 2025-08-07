@@ -1,3 +1,4 @@
+{{$root := .}}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,27 +10,27 @@
 		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 		<style>
 			:root {
-				--accent-bg: {{.Theme.AccentBg}};
-				--accent-text: {{.Theme.AccentText}};
-				--text-on-accent: {{.Theme.TextOnAccentColor}};
+				--accent-bg: {{.Resume.Theme.AccentBg}};
+				--accent-text: {{.Resume.Theme.AccentText}};
+				--text-on-accent: {{.Resume.Theme.TextOnAccentColor}};
 			}
 		</style>
 	</head>
 	<body>
     	<header>
 			<div class="placeholder">
-				{{.Name | initials}}
+				{{.Resume.Name | initials}}
 			</div>
 			<div class="info">
-				<h1>{{.Name}}</h1>
+				<h1>{{.Resume.Name}}</h1>
 				<hr>
-				<h2>{{.Role}}</h2>
+				<h2>{{.Resume.Role}}</h2>
 			</div>
 		</header>
 		<sidebar>
 			<section>
 				<h3>Contact</h3>
-				{{range .ContactInfo}}
+				{{range .Resume.ContactInfo}}
 					<div class="contact-item">
 						<strong>{{.Label}}:</strong>
 						{{if .Href}}
@@ -42,11 +43,11 @@
 			</section>
 			<section>
 				<h3>Objective</h3>
-				{{.Objective}}
+				{{.Resume.Objective}}
 			</section>
 			<section>
 				<h3>Links</h3>
-				{{range .Links}}
+				{{range .Resume.Links}}
 					<div class="links-item">
 						<strong>{{.Label}}:</strong>
 						{{if .Href}}
@@ -60,7 +61,7 @@
 			<section>
 				<h3>Skills &amp; Experience</h3>
 				<ul>
-					{{range .Skills}}
+					{{range .Resume.Skills}}
 						<li>{{.}}</li>
 					{{end}}
  				</ul>
@@ -69,28 +70,38 @@
 		<article>
 			<section class="prof-experience">
 				<h3>Professional experience</h3>
-				{{range .ProfExperience}}
+				{{range .Resume.ProfExperience}}
 					<section class="job-entry">
 						<h4>{{.CompanyName}}</h4>
 						{{range .Roles}}
 							<h5>{{.Title}} &bull; {{.StartedAt}}{{if .EndedAt}} - {{end}}{{.EndedAt}}</h5>
 						{{end}}
-						{{.Description | md}}
+						{{if .Highlights}}
+							{{.Highlights | md}}
+						{{end}}
+						{{if $root.IncludeDescriptions}}
+							{{.Description | md}}
+						{{end}}
 					</section>
 				{{end}}
 			</section>
 			<section class="personal-projects">
 				<h3>Personal Projects</h3>
-				{{range .PersonalProjects}}
+				{{range .Resume.PersonalProjects}}
 				<section class="personal-project">
 					<h4>{{.Title}}</h4>
-					{{.Description | md}}
+					{{if .Highlights}}
+						{{.Highlights | md}}
+					{{end}}
+					{{if and $root.IncludeDescriptions .Description}}
+						{{.Description | md}}
+					{{end}}
 				</section>
 				{{end}}
 			</section>
 			<section class="all-education">
 				<h3>Certifications &amp; Education</h3>
-				{{range .Certifications}}
+				{{range .Resume.Certifications}}
 					<section class="education">
 						<h4>{{.Title}} &bull; {{.ValidStart}}{{if .ValidEnd}} - {{end}}{{.ValidEnd}}</h4>
 						{{.Description | md}}

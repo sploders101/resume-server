@@ -2,6 +2,11 @@ package main
 
 import "html/template"
 
+type ResumeContext struct {
+	IncludeDescriptions bool
+	Resume              Resume
+}
+
 type Resume struct {
 	Theme            ResumeTheme       `yaml:"theme"`
 	Name             string            `yaml:"name"`
@@ -30,7 +35,8 @@ type LinkableKV struct {
 type ProfExperience struct {
 	CompanyName string        `yaml:"companyName"`
 	Roles       []ProfExpRole `yaml:"roles"`
-	Description string        `yaml:"description"`
+	Highlights  *string       `yaml:"highlights,omitempty"`
+	Description *string       `yaml:"description,omitempty"`
 }
 
 type ProfExpRole struct {
@@ -41,7 +47,8 @@ type ProfExpRole struct {
 
 type PersonalProject struct {
 	Title       string `yaml:"title"`
-	Description string `yaml:"description"`
+	Highlights  *string `yaml:"highlights"`
+	Description *string `yaml:"description"`
 }
 
 type Certification struct {
