@@ -62,11 +62,7 @@
 			</section>
 			<section>
 				<h3>Skills &amp; Experience</h3>
-				<ul>
-					{{range .Resume.Skills}}
-						<li>{{.}}</li>
-					{{end}}
- 				</ul>
+				{{.Resume.Skills|md}}
 			</section>
 		</sidebar>
 		<article>

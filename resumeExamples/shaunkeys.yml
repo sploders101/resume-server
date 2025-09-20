@@ -20,38 +20,49 @@ links:
   - label: GitHub
     value: /sploders101
     href: https://github.com/sploders101
+  - label: Full Resume
+    value: shaunkeys.com/resume
+    href: https://shaunkeys.com/resume
 
 objective: |
   To obtain a position that would allow me to use my skills for
   troubleshooting and my ability to learn and adapt to different
   technology stacks.
 
-skills:
-  - Linux
-  - JavaScript
-  - TypeScript
-  - HTML
-  - CSS/SCSS
-  - Vue.JS
-  - Node.JS
-  - Electron (app framework)
-  - Nginx
-  - Docker
-  - Kubernetes
-  - Calico
-  - Ceph
-  - Go
-  - Rust
-  - Tauri
-  - QML/QtQuick
-  - Python
-  - Java (working knowledge)
-  - C (working knowledge)
-  - Bash
-  - Git
-  - gRPC
-  - Socket/stream Programming
-  - Network administration concepts
+skills: |
+  * ***Linux*** - *7 years*
+    * ***Docker*** - *7 years*
+    * ***Kubernetes*** - *1 year*
+    * Namespaces
+  * ***Rust*** - *5 years*
+    * ***Tokio*** - *4 years*
+    * ***Tonic*** - *1 year*
+    * ***Prost*** - *1 year*
+    * ***Russh*** - *1 year*
+    * ***Rocket.rs*** - *2 years*
+    * ***Tauri***
+    * ***Embassy***
+    * C FFI
+  * ***gRPC*** / ***Protocol Buffers*** - *1 year*
+  * ***Python*** - *3 years*
+  * JavaScript - *7+ years*
+  * TypeScript - *7 years*
+  * HTML - *7+ years*
+  * CSS/SCSS - *7+ years*
+  * Vue.JS - *7 years*
+  * Node.JS - *7 years*
+  * Electron (app framework) - *2 years*
+  * Nginx - *7 years*
+  * Calico - *1 year*
+  * Ceph - *1 year*
+  * Go - *2 months*
+  * QML/QtQuick - *6 months*
+  * Java (working knowledge)
+  * C (working knowledge)
+  * Bash - *7+ years*
+  * Git - *7+ years*
+  * Socket/stream Programming - *5 years*
+  * Network administration concepts - *7 years*
 
 profExperience:
   - companyName: Charter Communications
@@ -65,13 +76,13 @@ profExperience:
     highlights: |
       * Created & maintained tools assisting in the deployment of new equipment and higher internet speeds to customers.
       * Created an in-house form framework designed to expedite development on simple and/or urgently-needed tools, allowing the creation of tools in a few hours that would ordinarily take multiple days to a week. This framework compromised on flexibility to allow us to deliver value with reasonably-good UX when it was urgently needed with less than a day of lead time.
-      * Assisted in the rollout of a sister team's high availability architecture, including training & consulting on Ceph, Kubernetes, and Docker, as well as load balancing and database clustering.
-      * Offered significant instruction on the fundamentals of secure coding, socket programming, Linux systems, and containers with in-depth explanations of how they work.
+      * Assisted in the rollout of a sister team's **high availability architecture**, including training & consulting on ***Ceph, Kubernetes, and Docker***, as well as load balancing and database clustering.
+      * Offered significant instruction on the fundamentals of ***secure coding, socket programming, Linux systems, and containers*** with in-depth explanations of how they work.
     description: |
-      * Created intelligent text parsers in Rust & Python to report network device configurations in a normalized, easy-to-use format, reporting any inconsistencies identified during analysis. These parsers caught several potential outages and served as the basis for a significant number of tools dealing with maintenance of existing equipment, and rollout of new equipment.
-      * Maintained Linux servers housing a significant number of mission-critical tools, and created a containerized environment in a new server to allow legacy codebases to run on a fundamentally different system.
+      * Created intelligent text parsers in ***Rust & Python*** to report network device configurations in a normalized, easy-to-use format, reporting any inconsistencies identified during analysis. These parsers caught several potential outages and served as the basis for a significant number of tools dealing with maintenance of existing equipment, and rollout of new equipment.
+      * **Maintained Linux servers** housing a significant number of mission-critical tools, and created a containerized environment in a new server to allow legacy codebases to run on a fundamentally different system.
       * Assisted in the training and adoption of docker containers and microservice architecture to consolidate logging & auditing, automate deployments, and create central pivot points where we can fix critical issues arising due to lack of vendor documentation which span multiple projects.
-      * Created a variety of microservices handling tasks from OAuth2 authentication & JWT-based sessions to emulating human input on iCMTS CLI interfaces and parsing complicated output with little to no structure, exposing a gRPC API for the rest of our system.
+      * Created a variety of microservices handling tasks from OAuth2 authentication & JWT-based sessions to emulating human input on iCMTS CLI interfaces using ***Russh*** and parsing complicated output with little to no structure, exposing a ***gRPC API using Tonic*** for the rest of our system.
       * Facilitated the migration of large amounts of undocumented code to a new system, going so far as to create my own container system based on Flatpak's Bubblewrap when Docker was not an accessible option.
         * This allowed us to keep our new environment clean and free of dirty hacks when there was no time to rewrite legacy code, while requiring documentation on all non-standard configurations.
   - companyName: Nagrastar
@@ -92,15 +103,16 @@ profExperience:
         startedAt: AUG 2018
         endedAt: OCT 2021
     highlights: |
-      * Created Panther Analytics as an embedded Linux system used to log and view efficiency data of Panther Industries' applicators.
+      * Created Panther Analytics as an **embedded Linux system** used to log and view efficiency data of Panther Industries' applicators.
       * Created ProductionHub: Panther's order tracking & productivity software.
       * Created tools to assist the sales department in advising customers how we could help.
     description: |
       * Created the codebase for Virtual System Builder, which displays an image of our system based on the requested configuration.
-      * Created an automatic update payload in the form of a bootable SD card that can extract hard-coded variables from a proprietary PLC runtime using a multi-stage payload injection process and generate an update package on-demand, upgrading the software in a desired PLC.
+      * Created an automatic update payload ***using Rust*** in the form of a bootable SD card that can extract hard-coded variables from a proprietary PLC runtime using a multi-stage payload injection process and generate an update package on-demand, upgrading the software in a desired PLC.
         * This later manifested into a full-scale redesign of our software deployment strategy, and allowed me to create user-friendly software installation wizards for Wago PLCs that were previously programmed using a proprietary IDE, and deploy software installs in bulk while lowering licensing costs.
-      * Created automated programming software for our motor controllers by reverse-engineering a .NET library and translating it into TypeScript to be installed into an Electron.JS program, then into Rust to be installed into an embedded Linux system for bulk installs using a wall-mounted appliance.
-      * Re-implemented the CANOpen SDO and PDO protocols in Rust to integrate parts of the motor controller programming process into the PLC, allowing reconfiguration of motor controllers via the network.
+      * Created automated programming software for our motor controllers by reverse-engineering a .NET library and translating it into TypeScript to be installed into an Electron.JS program, then into ***Rust*** to be installed into an embedded Linux system for bulk installs using a wall-mounted appliance.
+        * This involved implementing a custom binary protocol, using ***serialport-rs*** to communicate with the controller and perform firmware updates.
+      * Re-implemented the **CANOpen** SDO and PDO protocols in ***Rust*** using **SocketCAN drivers** to integrate parts of the motor controller programming process into the PLC, allowing reconfiguration of motor controllers via the network.
   - companyName: STEM School Highlands Ranch
     roles:
       - title: IT Intern
@@ -115,23 +127,25 @@ personalProjects:
     highlights: |
       WSLinux is a project I created for fun in my spare time that allows anyone to boot their computer using a web browser as their system disk.
     description: |
-      To do this, I designed and built my own POSIX filesystem using web technologies, a binary remote filesystem protocol that runs on websockets, and a FUSE connector that acts as a WebSocket server. The web app running Idbfs (IndexedDB FileSystem) and Wsfs (WebSocket FileSystem [server]) then connects to the FUSE driver, and serves files over that connection.
+      To do this, I designed and built my own POSIX filesystem using web technologies, a binary remote filesystem protocol that runs on websockets, and a FUSE connector written in ***Rust*** that acts as a WebSocket server. The web app running Idbfs (IndexedDB FileSystem) and Wsfs (WebSocket FileSystem [server]) then connects to the FUSE driver, and serves files over that connection.
 
       When combined with a proper initramfs in a UKI efi file, this can be used to bootstrap a system to allow mounting Wsfs as the root system partition during early boot. Everything seems to work well, and I have even been able to successfully boot to a graphical interface, and run Chromium in Linux, booted from Chromium.
   - title: SimplyDMX
     highlights: |
       While volunteering in production at church, I have seen a need for better DMX lighting software and have been developing new software in my spare time.
+    description: |
+      This application uses ***Tauri*** to display a web-based frontend to the user and provide a seamless cross-platform experience.
   - title: Home Lab
     highlights: |
-      I maintain a homelab which allows me to try thing out and learn new technologies, including Kubernetes, Docker, Ceph, iSCSI, CI/CD, and more, and gain a deep understanding of how they work.
+      I maintain a homelab which allows me to try thing out and learn new technologies, including ***Kubernetes, Docker***, Ceph, iSCSI, CI/CD, and more, and gain a deep understanding of how they work.
     description: |
       Ever since I was a kid, I have been building and administering Linux servers using various technologies such as OpenHAB, Home Assistant, media servers, Samba, Netatalk, iSCSI, Ceph, Proxmox, Docker, and many more. This is a primary source of my skills, and allows me to learn a significant number of technologies very deeply, understanding most, if not all, of the lower-level building blocks that make them work.
 
-      Recently, I have dedicated myself to learning about high availability concepts, diving head-first into Ceph, Kubernetes, Keepalived, and many more. I have been having a particularly fun time learning the in-depth details of Kubernetes and using Calico, Rook, and MetalLB (though my current project involves migrating to kube-vip for the automated control plane redundancy).
+      Recently, I have dedicated myself to learning about high availability concepts, diving head-first into Ceph, ***Kubernetes***, Keepalived, and many more. I have been having a particularly fun time learning the in-depth details of Kubernetes and using Calico, Rook, and MetalLB (though my current project involves migrating to kube-vip for the automated control plane redundancy).
 
       My cluster contains a fairly significant set of firewall rules written using NetworkPolicy ojects (both native and Calico extensions) that govern every connection made in my cluster, and adopt a block-by-default methodology. Each application gets its own namespace, and each namespace contains rules that block all cross-namespace ingress traffic, except when specified otherwise.
 
-      I've also been learning about Prometheous, Grafana, Loki, and various other observability systems and have begun integrating them into my homelab, which has already caught several issues before they occurred.
+      I've also been learning about Prometheous, Grafana, Loki, and various other ***observability systems*** and have begun integrating them into my homelab, which has already caught several issues before they occurred.
 
 certifications:
   - title: Python Certified Associate Programmer (PCAP)
@@ -147,3 +161,4 @@ certifications:
     validStart: MAY 2018
     description: |
       Concentrated on software/web development courses. Extracurricular activities include First Robotics and Technology Student Association.
+
