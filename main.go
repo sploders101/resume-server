@@ -14,7 +14,6 @@ import (
 
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
-	"github.com/gorilla/mux"
 	"github.com/yuin/goldmark"
 	"gopkg.in/yaml.v3"
 )
@@ -25,7 +24,7 @@ func main() {
 		log.Fatalln("RESUME_PATH unspecified.")
 	}
 
-	router := mux.NewRouter()
+	router := http.NewServeMux()
 
 	router.HandleFunc("/style.css", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "./assets/static/style.css")
@@ -164,12 +163,12 @@ func pdfGrabber(url string) ([]byte, error) {
 		chromedp.Sleep(100 * time.Millisecond),
 		chromedp.ActionFunc(func(ctx context.Context) error {
 			var err error
-			printer := page.PrintToPDF()
-			printer = printer.WithPrintBackground(true)
-			printer = printer.WithMarginTop(0.4)
-			printer = printer.WithMarginLeft(0.4)
-			printer = printer.WithMarginRight(0.4)
-			printer = printer.WithMarginBottom(0.4)
+			printer := page.PrintToPDF().
+				WithPrintBackground(true).
+				WithMarginTop(0.4).
+				WithMarginLeft(0.4).
+				WithMarginRight(0.4).
+				WithMarginBottom(0.4)
 			pdfBuffer, _, err = printer.Do(ctx)
 			if err != nil {
 				return err

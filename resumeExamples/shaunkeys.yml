@@ -2,6 +2,8 @@ theme:
   accentBg: rgb(215, 136, 53)
   accentText: rgb(191, 122, 48)
   textOnAccentColor: white
+  highlightColor: yellow
+  highlightTextColor: black
 
 name: Shaun Keys
 role: Software Engineer

@@ -29,6 +29,11 @@ hr {
 	border-top: 1px solid black;
 }
 
+em > strong {
+	background-color: var(--highlight-color);
+	color: var(--highlight-text-color);
+}
+
 header {
 	grid-area: header;
 

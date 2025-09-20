@@ -21,9 +21,11 @@ type Resume struct {
 }
 
 type ResumeTheme struct {
-	AccentBg          template.CSS `yaml:"accentBg"`
-	AccentText        template.CSS `yaml:"accentText"`
-	TextOnAccentColor template.CSS `yaml:"textOnAccentColor"`
+	AccentBg           template.CSS `yaml:"accentBg"`
+	AccentText         template.CSS `yaml:"accentText"`
+	TextOnAccentColor  template.CSS `yaml:"textOnAccentColor"`
+	HighlightColor     template.CSS `yaml:"highlightColor"`
+	HighlightTextColor template.CSS `yaml:"highlightTextColor"`
 }
 
 type LinkableKV struct {
@@ -46,7 +48,7 @@ type ProfExpRole struct {
 }
 
 type PersonalProject struct {
-	Title       string `yaml:"title"`
+	Title       string  `yaml:"title"`
 	Highlights  *string `yaml:"highlights"`
 	Description *string `yaml:"description"`
 }
